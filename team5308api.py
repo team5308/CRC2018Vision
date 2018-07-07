@@ -1,4 +1,5 @@
 import cv2
+import numpy as np
 import __data__ as data
 
 class team5308(object):
@@ -68,4 +69,26 @@ class team5308(object):
 
         cv2.namedWindow('yello')
         cv2.imshow('yello', self.ST)
+
+
+    def scanAndFix(self):
+        '''
+        scan the whole ST pic\n
+        then try to fix more smoothly\n
+        '''
+        tempST = self.ST
+        
+        for i in range(1,self.png.shape[0]-2):
+            for j in range(1,self.png.shape[1]-2):
+                tempR = 0
+                for ii in range(2):
+                    for jj in range(2):
+                        tempR += tempST[i+ii][j+jj]/255
+                        if(tempR >= 5):
+                            self.ST[i][j] = 255
+                print(str(i)+' '+str(j)+' done\n')
+        cv2.namedWindow('aft')
+        cv2.imshow('aft',self.ST)
+
+
     

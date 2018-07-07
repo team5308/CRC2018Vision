@@ -7,6 +7,7 @@ team.show()
 team.cvtHSV()
 cv2.imshow('testHSV',team.HSVPic)
 team.findcase()
+team.scanAndFix()
 
 team.saveLocal(0)
 
