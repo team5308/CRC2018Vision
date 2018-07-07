@@ -86,9 +86,10 @@ class team5308(object):
                         tempR += tempST[i+ii][j+jj]/255
                         if(tempR >= 5):
                             self.ST[i][j] = 255
-                print(str(i)+' '+str(j)+' done\n')
+                #print(str(i)+' '+str(j)+' done\n')
         cv2.namedWindow('aft')
         cv2.imshow('aft',self.ST)
 
-
-    
+    def scanAndFix2(self):
+        tempST = self.ST
+        tempST = cv2.
