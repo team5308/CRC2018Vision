@@ -1,7 +1,7 @@
 import cv2
 import team5308api as wyh
 
-team = wyh.team5308()
+team = wyh.team5308(1)
 
 team.show()
 team.cvtHSV()

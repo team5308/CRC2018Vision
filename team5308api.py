@@ -9,8 +9,8 @@ class team5308(object):
     
     numberPic = 0
 
-    def __init__(self):
-        self.cap = cv2.VideoCapture(0)
+    def __init__(self, channel = 0):
+        self.cap = cv2.VideoCapture(channel)
         team5308.numberPic = 0
 
     def release(self, time=30):
@@ -89,6 +89,7 @@ class team5308(object):
                 #print(str(i)+' '+str(j)+' done\n')
         cv2.namedWindow('aft')
         cv2.imshow('aft',self.ST)
+        cv2.imwrite('sorttt'+str(team5308.numberPic)+'.png',self.ST)
 
     def scanAndFix2(self):
         tempST = self.ST
@@ -97,6 +98,11 @@ class team5308(object):
         self.drawLines(self.png, lines)
 
     def drawLines(self,img, lines):
+        
+        if(lines is None):
+            print('NO Lines detected!')
+            return 'NO Lines detected!'
+        
         for i in lines:
             for (rho, theta) in i:
                 a = np.cos(theta)
